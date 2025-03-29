@@ -1,0 +1,212 @@
+{% load static %}
+<!-- ---------------------------------- -->
+<!-- Start Vertical Layout Sidebar -->
+<!-- ---------------------------------- -->
+ {% include "backend/partials/logo-sidebar.html" %}
+ <nav class="sidebar-nav scroll-sidebar" data-simplebar>
+  <ul id="sidebarnav">
+    <!-- ---------------------------------- -->
+    <!-- Home -->
+    <!-- ---------------------------------- -->
+    <li class="nav-small-cap">
+      <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+      <span class="hide-menu">Kontrol Paneli</span>
+    </li>
+    <!-- ---------------------------------- -->
+    <!-- Dashboard -->
+    <!-- ---------------------------------- -->
+    <li class="sidebar-item">
+      <a class="sidebar-link" href="{% url "home" %}" id="get-url" aria-expanded="false">
+        <span>
+          <i class="ti ti-aperture"></i>
+        </span>
+        <span class="hide-menu">Panel</span>
+      </a>
+    </li>
+    <!-- ---------------------------------- -->
+    <!-- Kullanıcılar Sayfası -->
+    <!-- ---------------------------------- -->
+    <li class="nav-small-cap mt-0">
+      <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+      <span class="hide-menu">KULLANICI İŞLEMLERİ</span>
+    </li>
+    <li class="sidebar-item">
+      <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+        <span class="d-flex">
+          <i class="ti ti-layout-grid"></i>
+        </span>
+        <span class="hide-menu">Kullanıcılar</span>
+      </a>
+      <ul aria-expanded="false" class="collapse first-level">
+        <li class="sidebar-item">
+          <a href="{% url "teacher_list" %}" class="sidebar-link">
+            <div class="round-16 d-flex align-items-center justify-content-center">
+              <i class="ti ti-circle"></i>
+            </div>
+            <span class="hide-menu">Öğretmen</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="{% url "student_list" %}" class="sidebar-link">
+            <div class="round-16 d-flex align-items-center justify-content-center">
+              <i class="ti ti-circle"></i>
+            </div>
+            <span class="hide-menu">Öğrenci</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="{% url "manager_list" %}" class="sidebar-link">
+            <div class="round-16 d-flex align-items-center justify-content-center">
+              <i class="ti ti-circle"></i>
+            </div>
+            <span class="hide-menu">Yönetici</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <!-- ---------------------------------- -->
+    <!-- Sınavlar Sayfası -->
+    <!-- ---------------------------------- -->
+    <li class="nav-small-cap">
+      <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+      <span class="hide-menu">SINAVLAR</span>
+    </li>
+    <li class="sidebar-item">
+      <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+        <span class="d-flex">
+          <i class="ti ti-file-description"></i>
+        </span>
+        <span class="hide-menu">Sınavlar</span>
+      </a>
+      <ul aria-expanded="false" class="collapse first-level">
+        <li class="sidebar-item">
+          <a href="{% url "teacher_list" %}" class="sidebar-link">
+            <div class="round-16 d-flex align-items-center justify-content-center">
+              <i class="ti ti-circle"></i>
+            </div>
+            <span class="hide-menu">Sınavlar</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="{% url "student_list" %}" class="sidebar-link">
+            <div class="round-16 d-flex align-items-center justify-content-center">
+              <i class="ti ti-circle"></i>
+            </div>
+            <span class="hide-menu">Sınav Hazırla</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="{% url "manager_list" %}" class="sidebar-link">
+            <div class="round-16 d-flex align-items-center justify-content-center">
+              <i class="ti ti-circle"></i>
+            </div>
+            <span class="hide-menu">Sınav Raporları</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <!-- ---------------------------------- -->
+    <!-- Diğer Menüler -->
+    <!-- ---------------------------------- -->
+    <li class="sidebar-item">
+      <a class="sidebar-link" href="{% url "home" %}" id="get-url" aria-expanded="false">
+        <span>
+          <i class="ti ti-school"></i>
+        </span>
+        <span class="hide-menu">Kurslar</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a class="sidebar-link" href="{% url "home" %}" id="get-url" aria-expanded="false">
+        <span>
+          <i class="ti ti-square-check"></i>
+        </span>
+        <span class="hide-menu">Yapılacaklar</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a class="sidebar-link" href="{% url "home" %}" id="get-url" aria-expanded="false">
+        <span>
+          <i class="ti ti-align-box-left-middle"></i>
+        </span>
+        <span class="hide-menu">Notlar</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a class="sidebar-link" href="{% url "home" %}" id="get-url" aria-expanded="false">
+        <span>
+          <i class="ti ti-calendar"></i>
+        </span>
+        <span class="hide-menu">Takvim</span>
+      </a>
+    </li>
+
+    <!-- ---------------------------------- -->
+    <!-- Ayarlar Sayfası -->
+    <!-- ---------------------------------- -->
+    <li class="nav-small-cap">
+      <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+      <span class="hide-menu">SİTE AYARLARI</span>
+    </li>
+    <li class="sidebar-item">
+      <a class="sidebar-link" href="{% url "home" %}" id="get-url" aria-expanded="false">
+        <span>
+          <i class="ti ti-settings"></i>
+        </span>
+        <span class="hide-menu">Ayarlar</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a class="sidebar-link" href="{% url "parameters" %}" id="get-url" aria-expanded="false">
+        <span>
+          <i class="ti ti-tools"></i>
+        </span>
+        <span class="hide-menu">Parametreler</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a class="sidebar-link" href="{% url "home" %}" id="get-url" aria-expanded="false">
+        <span>
+          <i class="ti ti-lock"></i>
+        </span>
+        <span class="hide-menu">Roller ve İzinler</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a class="sidebar-link" href="{% url "home" %}" id="get-url" aria-expanded="false">
+        <span>
+          <i class="ti ti-mail"></i>
+        </span>
+        <span class="hide-menu">Mesajlar</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a class="sidebar-link" href="{% url "home" %}" id="get-url" aria-expanded="false">
+        <span>
+          <i class="ti ti-calculator"></i>
+        </span>
+        <span class="hide-menu">Muhasebe</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<div class="fixed-profile p-3 mx-4 mb-2 bg-secondary-subtle rounded mt-3">
+  <div class="hstack gap-3">
+    <div class="john-img">
+      <img src="{% static 'backend/assets/images/profile/user-1.jpg'%}" class="rounded-circle" width="40" height="40" alt="modernize-img" />
+    </div>
+    <div class="john-title">
+      <h6 class="mb-0 fs-4 fw-semibold">Mathew</h6>
+      <span class="fs-2">Designer</span>
+    </div>
+    <button class="border-0 bg-transparent text-primary ms-auto" tabindex="0" type="button" aria-label="logout"
+      data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="logout">
+      <i class="ti ti-power fs-6"></i>
+    </button>
+  </div>
+</div>
+
+<!-- ---------------------------------- -->
+<!-- Start Vertical Layout Sidebar -->
+<!-- ---------------------------------- -->

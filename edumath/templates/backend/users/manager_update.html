@@ -1,0 +1,125 @@
+{% extends "backend/master.html" %}
+{% load static %}
+{% block content %}
+
+    <div class="card bg-info-subtle shadow-none position-relative overflow-hidden mb-4">
+        <div class="card-body px-4 py-3">
+            <div class="row align-items-center">
+                <div class="col-9">
+                    <h4 class="fw-semibold mb-8">Yönetici Kayıt Formu</h4>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a class="text-muted text-decoration-none" href="{% url "home" %}">Anasayfa</a>
+                            </li>
+                            <li class="breadcrumb-item" aria-current="page">Yönetici Kayıt</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="col-3">
+                    <div class="text-center mb-n5">
+                        <img src="{% static "backend/assets/images/breadcrumb/ChatBc.png" %} " alt="modernize-img"
+                             class="img-fluid mb-n4"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                <div class="fs-5 mb-2 ps-3 pt-3"><strong>{{ message }}</strong></div>
+
+                {% if form.errors %}
+                    <ul>
+                        {% for field,errors in form.errors.items %}
+                            {% for error in errors %}
+                                <li class="font-weight-bold ps-4">
+                                    <strong>
+                                        <i class="ti ti-arrow-right me-0 fs-4 "></i>
+                                        {{ error }}
+                                    </strong>
+                                </li>
+                            {% endfor %}
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card bg-primary-subtle">
+                <div class="px-4 py-3 border-bottom">
+                    <h4 class="card-title mb-0">Yönetici kayıt formu</h4>
+                </div>
+                <div class="card-body">
+                    <form action="{% url "update_manager" manager.id %}" class="form-horizontal r-separator"
+                          method='post'>
+                        {% csrf_token %}
+                        {% if form.tc_no.errors %}
+                            <div class="error">
+                                {% for error in form.tc_no.errors %}
+                                    <p>{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        <div class="mb-4 row align-items-center">
+                            <label for="id_first_name"
+                                   class="form-label col-sm-3 col-form-label">{{ form.first_name.label }}</label>
+                            <div class="col-sm-9">
+                                {{ form.first_name }}
+                            </div>
+                        </div>
+                        <div class="mb-4 row align-items-center">
+                            <label for="id_last_name"
+                                   class="form-label col-sm-3 col-form-label">{{ form.last_name.label }}</label>
+                            <div class="col-sm-9">
+                                {{ form.last_name }}
+                            </div>
+                        </div>
+                        <div class="mb-4 row align-items-center">
+                            <label for="id_email"
+                                   class="form-label col-sm-3 col-form-label">{{ form.email.label }}</label>
+                            <div class="col-sm-9">
+                                {{ form.email }}
+                            </div>
+                        </div>
+                        <div class="mb-4 row align-items-center">
+                            <label for="id_tc_no"
+                                   class="form-label col-sm-3 col-form-label">{{ form.tc_no.label }}</label>
+                            <div class="col-sm-9">
+                                {{ form.tc_no }}
+                            </div>
+                        </div>
+                        <div class="mb-4 row align-items-center">
+                            <label for="id_phone_number"
+                                   class="form-label col-sm-3 col-form-label">{{ form.phone_number.label }}</label>
+                            <div class="col-sm-9">
+                                {{ form.phone_number }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-9">
+                                <button type='submit' class="btn btn-primary">Güncelle</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static "backend/assets/libs/select2/dist/css/select2.min.css" %} ">
+{% endblock css %}
+
+{% block javascript %}
+    <script src="{% static "backend/assets/libs/select2/dist/js/select2.full.min.js" %}"></script>
+    <script src="{% static "backend/assets/libs/select2/dist/js/select2.min.js" %}"></script>
+    <script src="{% static "backend/assets/js/forms/select2.init.js" %}"></script>
+    <script src="{% static 'backend/assets/libs/inputmask/dist/jquery.inputmask.min.js' %}"></script>
+    <script src="{% static 'backend/assets/js/forms/mask.init.js' %}"></script>
+{% endblock javascript %}

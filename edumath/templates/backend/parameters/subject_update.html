@@ -1,0 +1,114 @@
+{% extends 'backend/master.html' %}
+{% load static %}
+{% block content %}
+    <div class="card bg-info-subtle shadow-none position-relative overflow-hidden mb-4">
+        <div class="card-body px-4 py-3">
+            <div class="row align-items-center">
+                <div class="col-9">
+                    <h4 class="fw-semibold mb-8">Parametreler</h4>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a class="text-muted text-decoration-none" href="{% url "home" %}">Panel</a>
+                            </li>
+                            <li class="breadcrumb-item" aria-current="page">Parametreler</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="col-3">
+                    <div class="text-center mb-n5">
+                        <img src="{% static "backend/assets/images/breadcrumb/ChatBc.png" %} " alt="branş listesi"
+                             class="img-fluid mb-n4"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'backend/parameters/parameters_partials/error_messages.html' %}
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="px-4 py-3 border-bottom bg-primary-subtle d-flex align-items-center justify-content-between">
+                    <h4 class="card-title mb-0">BRANŞ MODÜLÜ</h4>
+                </div>
+                <div class="card-body p-4 bg-primary-subtle">
+                    <div class="mb-3 col-md-12 gap-6 ">
+                        <h5 class="fs-4 fw-semibold mb-4">Branş Ekle</h5>
+
+                    </div>
+                    <form action="{% url "subject_update" subject.pk %}" method="Post">
+                        {% csrf_token %}
+                        <div class="mb-4 row align-items-center">
+                            <label for="id_name"
+                                   class="form-label col-sm-3 col-form-label text-end">{{ subjectForm.name.label }}</label>
+                            <div class="col-sm-9">
+                                {{ subjectForm.name }}
+                            </div>
+                        </div>
+                        <div class="mb-3 col-md-12 hstack gap-6 d-flex align-items-center justify-content-end">
+                            <button class="btn btn-primary hstack gap-6" type="submit">
+                                <i class="ti ti-send fs-5"></i>
+                                Güncelle
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                {% include 'backend/parameters/parameters_partials/subject_lists.html' %}
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="px-4 py-3 border-bottom bg-primary-subtle d-flex align-items-center justify-content-between">
+                    <h4 class="card-title mb-0">EĞİTİM DÜZEYİ MODÜLÜ</h4>
+                </div>
+                <div class="card-body p-4 bg-primary-subtle">
+                    <div class="mb-3 col-md-12 gap-6 ">
+                        <h5 class="fs-4 fw-semibold mb-4">Eğitim Düzeyi Ekle</h5>
+
+                    </div>
+                    <form action="{% url "grade_save" %}" method="Post">
+                        {% csrf_token %}
+                        <div class="mb-4 row align-items-center">
+                            <label for="id_name"
+                                   class="form-label col-sm-3 col-form-label text-end">{{ gradeForm.name.label }}</label>
+                            <div class="col-sm-9">
+                                {{ gradeForm.name }}
+                            </div>
+                        </div>
+                        <div class="mb-4 row align-items-center">
+                            <label for="id_name"
+                                   class="form-label col-sm-3 col-form-label text-end">{{ gradeForm.category.label }}</label>
+                            <div class="col-sm-9">
+                                {{ gradeForm.category }}
+                            </div>
+                        </div>
+                        <div class="mb-3 col-md-12 hstack gap-6 d-flex align-items-center justify-content-end">
+                            <button class="btn btn-primary hstack gap-6" type="submit">
+                                <i class="ti ti-send fs-5"></i>
+                                Kaydet
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                {% include 'backend/parameters/parameters_partials/grade_lists.html' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static "backend/assets/libs/sweetalert2/dist/sweetalert2.min.css" %} ">
+    <link rel="stylesheet" href="{% static "backend/assets/libs/select2/dist/css/select2.min.css" %} ">
+{% endblock %}
+
+{% block javascript %}
+    <script src="{% static "backend/assets/libs/sweetalert2/dist/sweetalert2.min.js" %} "></script>
+    <script src="{% static "backend/assets/js/forms/sweet-alert.init.js" %} "></script>
+    <script src="{% static 'backend/helpers/delete_function.js' %}"></script>
+    <script src="{% static 'backend/helpers/toggle_on_off.js' %}"></script>
+     <script src="{% static "backend/assets/libs/select2/dist/js/select2.full.min.js" %}"></script>
+    <script src="{% static "backend/assets/libs/select2/dist/js/select2.min.js" %}"></script>
+    <script src="{% static "backend/assets/js/forms/select2.init.js" %}"></script>
+    <script src="{% static 'backend/helpers/delete_function.js' %}"></script>
+    <script src="{% static 'backend/helpers/toggle_on_off.js' %}"></script>
+{% endblock %}

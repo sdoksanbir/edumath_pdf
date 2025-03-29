@@ -1,0 +1,38 @@
+{% extends 'backend/master.html' %}
+{% load static %}
+{% block content %}
+    <div class="row">
+        <div class="col-3">
+            <div class="card border-start border-danger bg-danger-subtle">
+                <div class="card-body text-center">
+                    <div class="d-flex align-items-center justify-content-between">
+                    <span class="text-danger display-6">
+                      <img src="{% static 'backend/assets/images/profile/user-6.jpg' %}" width="100"
+                           class="rounded-3 img-fluid" alt="">
+                    </span>
+                        <div>
+                            <p class="card-subtitle text-danger">Kayıtlı Eğitmen Sayısı</p>
+                            <h4 class="card-title fs-7">{{ teachers|length }}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card border-start border-success bg-primary-subtle">
+                <div class="card-body text-center">
+                    <div class="d-flex align-items-center justify-content-between">
+                    <span class="text-danger display-7">
+                      <img src="{% static 'backend/assets/images/profile/user-4.jpg' %}" width="100"
+                           class="rounded-3 img-fluid" alt="">
+                    </span>
+                        <div>
+                            <p class="card-subtitle text-success">Kayıtlı Öğrenci Sayısı</p>
+                            <h4 class="card-title fs-7">{{ students|length }}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

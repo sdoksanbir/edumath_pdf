@@ -1,0 +1,66 @@
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            <div class="fs-5 mb-2 ps-3 pt-3"><strong>{{ message }}</strong></div>
+            <!-- Dinamik olarak form hatalarını kontrol et ve göster -->
+            {% if subjectForm.errors %}
+                <ul>
+                    {% for field, errors in subjectForm.errors.items %}
+                        {% for error in errors %}
+                            <li class="font-weight-bold ps-4">
+                                <strong>
+                                    <i class="ti ti-arrow-right me-0 fs-4 "></i>
+                                    {{ error }}
+                                </strong>
+                            </li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            {% if gradeForm.errors %}
+                <ul>
+                    {% for field, errors in gradeForm.errors.items %}
+                        {% for error in errors %}
+                            <li class="font-weight-bold ps-4">
+                                <strong>
+                                    <i class="ti ti-arrow-right me-0 fs-4 "></i>
+                                    {{ error }}
+                                </strong>
+                            </li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            {% if gradeUpdateForm.errors %}
+                <ul>
+                    {% for field, errors in gradeForm.errors.items %}
+                        {% for error in errors %}
+                            <li class="font-weight-bold ps-4">
+                                <strong>
+                                    <i class="ti ti-arrow-right me-0 fs-4 "></i>
+                                    {{ error }}
+                                </strong>
+                            </li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            {% if subjectUpdateForm.errors %}
+                <ul>
+                    {% for field, errors in subjectUpdateForm.errors.items %}
+                        {% for error in errors %}
+                            <li class="font-weight-bold ps-4">
+                                <strong>
+                                    <i class="ti ti-arrow-right me-0 fs-4 "></i>
+                                    {{ error }}
+                                </strong>
+                            </li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    {% endfor %}
+{% endif %}

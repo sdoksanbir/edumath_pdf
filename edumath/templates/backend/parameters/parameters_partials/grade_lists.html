@@ -1,0 +1,60 @@
+<div class="px-4 py-3 border-top border-bottom  bg-primary-subtle d-flex align-items-center justify-content-between">
+    <h4 class="card-title mb-0">EĞİTİM DÜZEYİ LİSTESİ</h4>
+    <i id="toggleTableIcon" class="ti ti-eye fs-4 cursor-pointer"
+       onclick="toggleTable(this,'gradeTable')" data-bs-toggle="tooltip"
+       data-bs-placement="top" title="Tabloyu Göster/Gizle"></i>
+</div>
+<div class="px-4 py-3 border-top border-bottom bg-primary-subtle d-flex align-items-center justify-content-between">
+    <div class="table-responsive rounded-1 col-12">
+        <table class="table table-bordered mb-0" id="gradeTable" style="display: none">
+            <thead class="table">
+            <tr>
+                <th scope="col" class="text-center"><span class='text-success'># ID</span></th>
+                <th scope="col" class="text-center"><span class='text-success'>Eğitim Düzeyi</span></th>
+                <th scope="col" class="text-center"><span class='text-success'>Eylemler</span></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for grade in grades %}
+                <tr>
+                    <td class="text-center">
+                        <h6 class="mb-0 fs-4">{{ grade.id }}</h6>
+                    </td>
+                    <td class="text-center">
+                        <h6 class="mb-0 fs-4">{{ grade.name }}</h6>
+                    </td>
+                    <td class="text-center">
+                        <a class="fs-6 text-muted" href="javascript:void(0)" data-bs-toggle="tooltip"
+                           data-bs-placement="top" data-bs-title="Görüntüle">
+                            <i class="ti ti-eye"></i>
+                        </a>
+                        <a class="fs-6 text-muted" href="{% url "grade_update" grade.pk %}"
+                           data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Güncelle">
+                            <i class="ti ti-edit"></i>
+                        </a>
+                        <a href="#" class="fs-6 text-muted"
+                           data-delete
+                           data-url="{% url 'grade_delete' grade.pk %}"
+                           data-csrftoken="{{ csrf_token }}"
+                           data-item-type="grade"
+                           data-item-id="{{ grade_update_id }}">
+                            <i class="ti ti-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="8" class="text-center text-muted">
+                        <span class="text-warning">Henüz branş eklenmedi.</span>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+

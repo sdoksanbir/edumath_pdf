@@ -1,0 +1,63 @@
+<div class="px-4 py-3 border-top border-bottom  bg-primary-subtle d-flex align-items-center justify-content-between">
+    <h4 class="card-title mb-0">BRANŞ LİSTESİ</h4>
+    <i id="toggleTableIcon" class="ti ti-eye fs-4 cursor-pointer"
+       onclick="toggleTable(this,'subjectTable')" data-bs-toggle="tooltip"
+       data-bs-placement="top" title="Tabloyu Göster/Gizle"></i>
+</div>
+<div class="px-4 py-3 border-top border-bottom bg-primary-subtle d-flex align-items-center justify-content-between">
+    <div class="table-responsive rounded-1 col-12">
+        <table class="table table-bordered mb-0" id="subjectTable" style="display: none;">
+            <thead class="table">
+            <tr>
+                <th scope="col" class="text-center"><span class='text-success'># ID</span></th>
+                <th scope="col" class="text-center"><span class='text-success'>Branş</span></th>
+                <th scope="col" class="text-center"><span class='text-success'>Eylemler</span></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for subject in subjects %}
+                <tr>
+                    <td class="text-center">
+                        <h6 class="mb-0 fs-4">{{ subject.id }}</h6>
+                    </td>
+                    <td class="text-center">
+                        <h6 class="mb-0 fs-4">{{ subject.name }}</h6>
+                    </td>
+                    <td class="text-center">
+                        <a class="fs-6 text-muted" href="javascript:void(0)" data-bs-toggle="tooltip"
+                           data-bs-placement="top" data-bs-title="Görüntüle">
+                            <i class="ti ti-eye"></i>
+                        </a>
+                        <a class="fs-6 text-muted" href="{% url "subject_update" subject.pk %}"
+                           data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Güncelle">
+                            <i class="ti ti-edit"></i>
+                        </a>
+
+
+                        <a href="#" class="fs-6 text-muted"
+                           data-delete
+                           data-url="{% url 'subject_delete' subject.pk %}"
+                           data-csrftoken="{{ csrf_token }}"
+                           data-item-type="subject"
+                           data-item-id="{{ subject_update_id }}">
+                            <i class="ti ti-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="8" class="text-center text-muted">
+                        <span class="text-warning">Henüz branş eklenmedi.</span>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+

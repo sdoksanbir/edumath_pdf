@@ -1,0 +1,46 @@
+{% load static %}
+<div class="profile-dropdown position-relative" data-simplebar>
+  <div class="d-flex align-items-center py-9 mx-7 border-bottom">
+    <img src="{% static 'backend/'%}assets/images/profile/user-1.jpg" class="rounded-circle" width="80" height="80"
+      alt="modernize-img" />
+    <div class="ms-3">
+      <h5 class="mb-1 fs-3">{{ user.first_name }} {{ user.last_name }}</h5>
+      <span class="mb-1 d-block">{{ user.user_type|capfirst }}</span>
+      <p class="mb-0 d-flex align-items-center gap-2">
+        <i class="ti ti-mail fs-4"></i> {{ user.email }}
+      </p>
+    </div>
+  </div>
+  <div class="message-body">
+    <a href="javascript:void(0)" class="py-8 px-7 mt-8 d-flex align-items-center">
+      <span class="d-flex align-items-center justify-content-center text-bg-light rounded-1 p-6">
+        <img src="{% static 'backend/assets/images/svgs/icon-account.svg'%}" alt="modernize-img" width="24" height="24" />
+      </span>
+      <div class="w-100 ps-3">
+        <h6 class="mb-1 fs-3 fw-semibold lh-base">Profil</h6>
+        <span class="fs-2 d-block text-body-secondary">Hesap Ayarları</span>
+      </div>
+    </a>
+    <a href="javascript:void(0)" class="py-8 px-7 d-flex align-items-center">
+      <span class="d-flex align-items-center justify-content-center text-bg-light rounded-1 p-6">
+        <img src="{% static 'backend/assets/images/svgs/icon-inbox.svg'%}" alt="modernize-img" width="24" height="24" />
+      </span>
+      <div class="w-100 ps-3">
+        <h6 class="mb-1 fs-3 fw-semibold lh-base">Mesajlarım</h6>
+        <span class="fs-2 d-block text-body-secondary">Mesajlar ve Bildirimler</span>
+      </div>
+    </a>
+    <a href="javascript:void(0)" class="py-8 px-7 d-flex align-items-center">
+      <span class="d-flex align-items-center justify-content-center text-bg-light rounded-1 p-6">
+        <img src="{% static 'backend/assets/images/svgs/icon-tasks.svg'%}" alt="modernize-img" width="24" height="24" />
+      </span>
+      <div class="w-100 ps-3">
+        <h6 class="mb-1 fs-3 fw-semibold lh-base">Görevlerim</h6>
+        <span class="fs-2 d-block text-body-secondary">Yapılacaklar ve İşler</span>
+      </div>
+    </a>
+  </div>
+  <div class="d-grid py-4 px-7 pt-8">
+    <a href="#" class="btn btn-outline-primary">Çıkış</a>
+  </div>
+</div>
